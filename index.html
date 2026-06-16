@@ -878,7 +878,7 @@ Considere negativamente: score baixo, probabilidade alta de inadimplência, muit
     });
 
     const data = await resp.json();
-    if (!data.content || !data.content[0]) throw new Error('Resposta inválida da IA');
+    if (!data.content || !data.content[0]) throw new Error('Resposta: ' + JSON.stringify(data));
 
     let raw = data.content[0].text.trim();
     raw = raw.replace(/```json\n?/g, '').replace(/```\n?/g, '').trim();
