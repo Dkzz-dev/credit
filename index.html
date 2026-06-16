@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-<meta charset="UTF-8">
+<!-- saved from url=(0059)file:///C:/Users/LucasBarbosaDasilva/Downloads/index_8.html -->
+<html lang="pt-BR"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Central de Inteligência de Crédito — REI-FIX</title>
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<script src="./Central de Inteligência de Crédito — REI-FIX_files/supabase-js@2"></script>
+<script src="./Central de Inteligência de Crédito — REI-FIX_files/chart.umd.min.js.baixados"></script>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 :root{
@@ -226,32 +226,32 @@ select option{background:var(--bg2)}
     <!-- SIDEBAR -->
     <div class="sidebar">
       <div class="sidebar-section">Análises</div>
-      <div class="nav-item active" onclick="navigate('dashboard')">
+      <div class="nav-item active" onclick="navigate(&#39;dashboard&#39;)">
         <span class="nav-icon">📊</span> Dashboard
       </div>
-      <div class="nav-item" onclick="navigate('nova-analise')">
+      <div class="nav-item" onclick="navigate(&#39;nova-analise&#39;)">
         <span class="nav-icon">➕</span> Nova Análise
       </div>
-      <div class="nav-item" onclick="navigate('analises')">
+      <div class="nav-item" onclick="navigate(&#39;analises&#39;)">
         <span class="nav-icon">📋</span> Análises
       </div>
-      <div class="nav-item" onclick="navigate('clientes')">
+      <div class="nav-item" onclick="navigate(&#39;clientes&#39;)">
         <span class="nav-icon">🏢</span> Clientes
       </div>
 
       <div class="sidebar-section" style="margin-top:16px">Gestão</div>
-      <div class="nav-item" onclick="navigate('excecoes')">
+      <div class="nav-item" onclick="navigate(&#39;excecoes&#39;)">
         <span class="nav-icon">⚠️</span> Exceções Comerciais
       </div>
-      <div class="nav-item" onclick="navigate('negativacoes')">
+      <div class="nav-item" onclick="navigate(&#39;negativacoes&#39;)">
         <span class="nav-icon">🚫</span> Negativações
       </div>
 
       <div class="sidebar-section" style="margin-top:16px">Indicadores</div>
-      <div class="nav-item" onclick="navigate('carteira')">
+      <div class="nav-item" onclick="navigate(&#39;carteira&#39;)">
         <span class="nav-icon">💼</span> Carteira de Risco
       </div>
-      <div class="nav-item" onclick="navigate('auditoria')">
+      <div class="nav-item" onclick="navigate(&#39;auditoria&#39;)">
         <span class="nav-icon">🔒</span> Log de Auditoria
       </div>
     </div>
@@ -264,17 +264,17 @@ select option{background:var(--bg2)}
         <div class="page-header">
           <div>
             <div class="page-title">Dashboard</div>
-            <div class="page-sub">Análise de Crédito e Risco Comercial · <span id="dashDate"></span></div>
+            <div class="page-sub">Análise de Crédito e Risco Comercial · <span id="dashDate">terça-feira, 16 de junho de 2026</span></div>
           </div>
           <button class="btn btn-secondary btn-sm" onclick="loadDashboard()">🔄 Atualizar</button>
         </div>
 
         <!-- KPIs -->
         <div class="grid-5 mb-16" id="dashKPIs">
-          <div class="kpi"><div class="kpi-icon">📊</div><div class="kpi-label">Clientes Analisados</div><div class="kpi-value" id="kpi-total">—</div></div>
-          <div class="kpi"><div class="kpi-icon">✅</div><div class="kpi-label">Aprovados</div><div class="kpi-value" id="kpi-aprovados">—</div></div>
-          <div class="kpi"><div class="kpi-icon">⚠️</div><div class="kpi-label">Com Restrições</div><div class="kpi-value" id="kpi-restricoes">—</div></div>
-          <div class="kpi"><div class="kpi-icon">🚫</div><div class="kpi-label">Não Recomendados</div><div class="kpi-value" id="kpi-nao">—</div></div>
+          <div class="kpi"><div class="kpi-icon">📊</div><div class="kpi-label">Clientes Analisados</div><div class="kpi-value" id="kpi-total">0</div></div>
+          <div class="kpi"><div class="kpi-icon">✅</div><div class="kpi-label">Aprovados</div><div class="kpi-value" id="kpi-aprovados">0</div></div>
+          <div class="kpi"><div class="kpi-icon">⚠️</div><div class="kpi-label">Com Restrições</div><div class="kpi-value" id="kpi-restricoes">0</div></div>
+          <div class="kpi"><div class="kpi-icon">🚫</div><div class="kpi-label">Não Recomendados</div><div class="kpi-value" id="kpi-nao">0</div></div>
           <div class="kpi"><div class="kpi-icon">📅</div><div class="kpi-label">Prazo Médio</div><div class="kpi-value" id="kpi-prazo">—</div><div class="kpi-sub">dias sugeridos</div></div>
         </div>
 
@@ -282,7 +282,57 @@ select option{background:var(--bg2)}
           <!-- Distribuição de Risco -->
           <div class="card">
             <div class="card-title">📈 Distribuição de Risco</div>
-            <div id="riskDist" style="display:flex;flex-direction:column;gap:10px"></div>
+            <div id="riskDist" style="display:flex;flex-direction:column;gap:10px">
+    <div>
+      <div class="flex justify-between" style="margin-bottom:4px">
+        <span style="font-size:12px;color:var(--text2)">Muito Baixo (A)</span>
+        <span style="font-size:12px;font-weight:600">0 <span class="text-muted">(0%)</span></span>
+      </div>
+      <div class="score-bar">
+        <div class="score-bar-fill" style="width:0%;background:var(--green)"></div>
+      </div>
+    </div>
+  
+    <div>
+      <div class="flex justify-between" style="margin-bottom:4px">
+        <span style="font-size:12px;color:var(--text2)">Baixo (B)</span>
+        <span style="font-size:12px;font-weight:600">0 <span class="text-muted">(0%)</span></span>
+      </div>
+      <div class="score-bar">
+        <div class="score-bar-fill" style="width:0%;background:#58a6ff"></div>
+      </div>
+    </div>
+  
+    <div>
+      <div class="flex justify-between" style="margin-bottom:4px">
+        <span style="font-size:12px;color:var(--text2)">Moderado (C)</span>
+        <span style="font-size:12px;font-weight:600">0 <span class="text-muted">(0%)</span></span>
+      </div>
+      <div class="score-bar">
+        <div class="score-bar-fill" style="width:0%;background:var(--amber)"></div>
+      </div>
+    </div>
+  
+    <div>
+      <div class="flex justify-between" style="margin-bottom:4px">
+        <span style="font-size:12px;color:var(--text2)">Alto (D)</span>
+        <span style="font-size:12px;font-weight:600">0 <span class="text-muted">(0%)</span></span>
+      </div>
+      <div class="score-bar">
+        <div class="score-bar-fill" style="width:0%;background:#e3843a"></div>
+      </div>
+    </div>
+  
+    <div>
+      <div class="flex justify-between" style="margin-bottom:4px">
+        <span style="font-size:12px;color:var(--text2)">Crítico (E)</span>
+        <span style="font-size:12px;font-weight:600">0 <span class="text-muted">(0%)</span></span>
+      </div>
+      <div class="score-bar">
+        <div class="score-bar-fill" style="width:0%;background:var(--red)"></div>
+      </div>
+    </div>
+  </div>
           </div>
 
           <!-- Últimas Análises -->
@@ -298,9 +348,7 @@ select option{background:var(--bg2)}
                     <th>Data</th>
                   </tr>
                 </thead>
-                <tbody id="dashAnalises">
-                  <tr><td colspan="4" class="text-muted" style="text-align:center;padding:24px">Carregando...</td></tr>
-                </tbody>
+                <tbody id="dashAnalises"><tr><td colspan="4" style="text-align:center;padding:24px;color:var(--text3)">Nenhuma análise ainda. <a href="file:///C:/Users/LucasBarbosaDasilva/Downloads/index_8.html#" onclick="navigate(&#39;nova-analise&#39;)">Criar primeira análise →</a></td></tr></tbody>
               </table>
             </div>
           </div>
@@ -309,9 +357,7 @@ select option{background:var(--bg2)}
         <!-- Alertas -->
         <div class="card mt-16">
           <div class="card-title">🔔 Alertas Inteligentes</div>
-          <div id="dashAlertas">
-            <div class="text-muted" style="padding:16px;text-align:center">Carregando alertas...</div>
-          </div>
+          <div id="dashAlertas"><div class="alert alert-info">Nenhum alerta. Comece adicionando análises.</div></div>
         </div>
       </div>
 
@@ -329,7 +375,17 @@ select option{background:var(--bg2)}
             <div class="card-title">📄 Dados do Relatório</div>
             <div class="form-group">
               <label>Texto do Relatório Protector *</label>
-              <textarea id="relatorioTexto" placeholder="Cole aqui o texto completo do relatório Protector / Serasa / Quod...&#10;&#10;Inclua: dados cadastrais, score, protestos, ações, consultas, grupo econômico, sócios...&#10;&#10;Exemplo dos dados já carregados:&#10;METAL TECNICA BOVENAU LTDA&#10;CNPJ: 81.616.765/0003-14&#10;Score: D · 521 pontos&#10;Prob. Inadimplência: 10,43%&#10;Capital Social: R$ 854.843,00&#10;..." style="min-height:340px"></textarea>
+              <textarea id="relatorioTexto" placeholder="Cole aqui o texto completo do relatório Protector / Serasa / Quod...
+
+Inclua: dados cadastrais, score, protestos, ações, consultas, grupo econômico, sócios...
+
+Exemplo dos dados já carregados:
+METAL TECNICA BOVENAU LTDA
+CNPJ: 81.616.765/0003-14
+Score: D · 521 pontos
+Prob. Inadimplência: 10,43%
+Capital Social: R$ 854.843,00
+..." style="min-height:340px"></textarea>
             </div>
             <div class="form-group">
               <label>Responsável pela Análise</label>
@@ -363,7 +419,7 @@ select option{background:var(--bg2)}
             <div class="page-title">Histórico de Análises</div>
             <div class="page-sub">Todas as análises realizadas</div>
           </div>
-          <button class="btn btn-primary btn-sm" onclick="navigate('nova-analise')">➕ Nova Análise</button>
+          <button class="btn btn-primary btn-sm" onclick="navigate(&#39;nova-analise&#39;)">➕ Nova Análise</button>
         </div>
 
         <div class="card">
@@ -548,11 +604,11 @@ select option{background:var(--bg2)}
   <div class="modal">
     <div class="modal-header">
       <div class="modal-title" id="modalTitle">Detalhe da Análise</div>
-      <button class="close-btn" onclick="closeModal('modalAnalise')">✕</button>
+      <button class="close-btn" onclick="closeModal(&#39;modalAnalise&#39;)">✕</button>
     </div>
     <div class="modal-body" id="modalBody"></div>
     <div class="modal-footer">
-      <button class="btn btn-secondary" onclick="closeModal('modalAnalise')">Fechar</button>
+      <button class="btn btn-secondary" onclick="closeModal(&#39;modalAnalise&#39;)">Fechar</button>
     </div>
   </div>
 </div>
@@ -562,7 +618,7 @@ select option{background:var(--bg2)}
   <div class="modal">
     <div class="modal-header">
       <div class="modal-title">Nova Exceção Comercial</div>
-      <button class="close-btn" onclick="closeModal('modalExcecao')">✕</button>
+      <button class="close-btn" onclick="closeModal(&#39;modalExcecao&#39;)">✕</button>
     </div>
     <div class="modal-body">
       <div class="form-group">
@@ -587,7 +643,7 @@ select option{background:var(--bg2)}
       </div>
     </div>
     <div class="modal-footer">
-      <button class="btn btn-secondary" onclick="closeModal('modalExcecao')">Cancelar</button>
+      <button class="btn btn-secondary" onclick="closeModal(&#39;modalExcecao&#39;)">Cancelar</button>
       <button class="btn btn-primary" onclick="saveExcecao()">💾 Salvar Exceção</button>
     </div>
   </div>
@@ -871,18 +927,10 @@ A = 30 dias, B = 21-28 dias, C = 14-21 dias, D = 7 dias, E = À vista
 Considere positivamente: ausência de protestos, ações e inadimplências, capital social alto, tempo de mercado, grupo econômico sólido.
 Considere negativamente: score baixo, probabilidade alta de inadimplência, muitas consultas recentes, empresa nova.`;
 
-    const resp = await fetch('https://api.anthropic.com/v1/messages', {
+    const resp = await fetch('/api/analyze', {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'x-api-key': 'COLE_SUA_API_KEY_AQUI',
-        'anthropic-version': '2023-06-01'
-      },
-      body: JSON.stringify({
-        model: 'claude-sonnet-4-6',
-        max_tokens: 2000,
-        messages: [{ role: 'user', content: prompt }]
-      })
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ prompt })
     });
 
     const data = await resp.json();
@@ -1353,5 +1401,6 @@ document.getElementById('globalSearch').addEventListener('input', async function
 document.getElementById('dashDate').textContent = new Date().toLocaleDateString('pt-BR', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
 loadDashboard();
 </script>
-</body>
-</html>
+
+
+</body></html>
