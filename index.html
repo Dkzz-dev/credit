@@ -871,14 +871,10 @@ A = 30 dias, B = 21-28 dias, C = 14-21 dias, D = 7 dias, E = À vista
 Considere positivamente: ausência de protestos, ações e inadimplências, capital social alto, tempo de mercado, grupo econômico sólido.
 Considere negativamente: score baixo, probabilidade alta de inadimplência, muitas consultas recentes, empresa nova.`;
 
-    const resp = await fetch('https://api.anthropic.com/v1/messages', {
+    const resp = await fetch('/api/analyze', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        model: 'claude-sonnet-4-6',
-        max_tokens: 2000,
-        messages: [{ role: 'user', content: prompt }]
-      })
+      body: JSON.stringify({ prompt })
     });
 
     const data = await resp.json();
