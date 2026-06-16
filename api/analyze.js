@@ -25,8 +25,15 @@ module.exports = async function handler(req, res) {
     });
 
     const data = await response.json();
+    console.log('Anthropic response:', JSON.stringify(data));
+    
+    if (data.error) {
+      return res.status(200).json({ error: data.error.message || 'API error', details: data });
+    }
+    
     return res.status(200).json(data);
   } catch (error) {
+    console.error('Handler error:', error);
     return res.status(500).json({ error: error.message });
   }
 }
